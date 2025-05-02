@@ -1,21 +1,14 @@
+import { BookListItem } from "@/components";
 import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
-
+import { View } from "react-native";
+import books from "../utils/dummyBooks";
 export default function Index() {
+  const book = books[0];
   return (
     <>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-        className="bg-slate-800"
-      >
+      <View className="bg-slate-800 flex-1 justify-center p-4">
         <StatusBar style="auto" />
-        <Text className="text-gray-100">
-          Edit app/index.tsx to edit this screen.
-        </Text>
+        <BookListItem book={book} />
       </View>
     </>
   );
