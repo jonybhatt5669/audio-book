@@ -12,6 +12,7 @@ export default function MainLayout() {
           tabBarIcon: ({ color, size }) => (
             <Foundation name="home" size={size} color={color} />
           ),
+          tabBarActiveTintColor: "#F4F8D3",
         }}
       />
       <Tabs.Screen
@@ -22,6 +23,7 @@ export default function MainLayout() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="library-outline" size={size} color={color} />
           ),
+          tabBarActiveTintColor: "#F4F8D3",
         }}
       />
     </Tabs>
