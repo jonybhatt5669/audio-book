@@ -7,6 +7,8 @@ export default function RootLayout() {
     ...DarkTheme,
     colors: {
       ...DarkTheme.colors,
+      background: "#17153B",
+      card: "#021526",
     },
   };
   return (

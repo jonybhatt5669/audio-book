@@ -4,7 +4,7 @@ import { FlatList, View } from "react-native";
 import books from "../../utils/dummyBooks";
 export default function Home() {
   return (
-    <View className="bg-slate-800 flex-1 justify-center p-4 pt-10">
+    <View className=" flex-1 justify-center p-4 pt-10">
       <FlatList
         data={books}
         contentContainerClassName="gap-6"
