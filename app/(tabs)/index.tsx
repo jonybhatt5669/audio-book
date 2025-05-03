@@ -11,7 +11,7 @@ export default function Home() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <BookListItem book={item} />}
       />
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </View>
   );
 }
