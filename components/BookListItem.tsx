@@ -13,9 +13,9 @@ export default function BookListItem({ book }: IBook) {
         <Text className="font-normal text-gray-400">{book.author}</Text>
       </View>
       <View className="flex-row items-center gap-4">
-        <AntDesign name="playcircleo" size={25} color="gainsboro" />
-        <AntDesign name="download" size={25} color="gainsboro" />
-        <AntDesign name="pluscircle" size={25} color="gainsboro" />
+        <AntDesign name="playcircleo" size={22} color="gainsboro" />
+        <AntDesign name="download" size={22} color="gainsboro" />
+        <AntDesign name="pluscircle" size={22} color="gainsboro" />
       </View>
     </View>
   );
