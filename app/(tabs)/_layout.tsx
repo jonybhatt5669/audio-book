@@ -1,7 +1,13 @@
+import { useAuth } from "@clerk/clerk-expo";
 import Foundation from "@expo/vector-icons/Foundation";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Tabs } from "expo-router";
+import { Redirect, Tabs } from "expo-router";
 export default function MainLayout() {
+  const { isSignedIn } = useAuth();
+
+  if (!isSignedIn) {
+    return <Redirect href={"/(auth)/sign-in"} />;
+  }
   return (
     <Tabs>
       <Tabs.Screen
@@ -22,6 +28,17 @@ export default function MainLayout() {
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="library-outline" size={size} color={color} />
+          ),
+          tabBarActiveTintColor: "#F4F8D3",
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profile",
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person-circle-outline" size={size} color={color} />
           ),
           tabBarActiveTintColor: "#F4F8D3",
         }}
