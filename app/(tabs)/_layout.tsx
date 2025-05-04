@@ -2,8 +2,13 @@ import { useAuth } from "@clerk/clerk-expo";
 import Foundation from "@expo/vector-icons/Foundation";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Redirect, Tabs } from "expo-router";
+import { ActivityIndicator } from "react-native";
 export default function MainLayout() {
-  const { isSignedIn } = useAuth();
+  const { isSignedIn, isLoaded } = useAuth();
+
+  if (!isLoaded) {
+    return <ActivityIndicator />;
+  }
 
   if (!isSignedIn) {
     return <Redirect href={"/(auth)/sign-in"} />;
