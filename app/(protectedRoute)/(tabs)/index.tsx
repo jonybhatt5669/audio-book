@@ -1,7 +1,8 @@
 import { AntDesign } from "@expo/vector-icons";
+import { Link } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { FlatList, Image, Text, View } from "react-native";
-import books from "../../utils/dummyBooks";
+import books from "../../../utils/dummyBooks";
 export default function Home() {
   return (
     <View className=" flex-1 justify-center p-4 pt-10">
@@ -22,7 +23,9 @@ export default function Home() {
               <Text className="font-normal text-gray-400">{item.author}</Text>
             </View>
             <View className="flex-row items-center gap-4">
-              <AntDesign name="playcircleo" size={22} color="gainsboro" />
+              <Link href="/player" asChild>
+                <AntDesign name="playcircleo" size={22} color="gainsboro" />
+              </Link>
               <AntDesign name="download" size={22} color="gainsboro" />
               <AntDesign name="pluscircle" size={22} color="gainsboro" />
             </View>
