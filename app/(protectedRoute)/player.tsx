@@ -9,6 +9,12 @@ export default function Player() {
   const player = useAudioPlayer({ uri: book.audio_url });
   const audioStatus = useAudioPlayerStatus(player);
   const time = audioStatus.currentTime / audioStatus.duration;
+  const formatDuration = () => {
+    const minutes = Math.floor(audioStatus.duration / 60);
+    const seconds = Math.floor(audioStatus.duration % 60);
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  };
+
   return (
     <SafeAreaView className="flex-1 items-center py-8 px-6">
       <View className="gap-4">
@@ -33,10 +39,14 @@ export default function Player() {
             {time.toFixed(2)}
           </Text>
           <Text className="text-sm text-gray-600 font-normal">
-            {audioStatus.duration.toFixed(2)}
+            {formatDuration()}
           </Text>
         </View>
-        <PlaybackBar value={audioStatus.currentTime / audioStatus.duration} />
+        <PlaybackBar
+          onSeek={(seconds: number) => player.seekTo(seconds)}
+          value={audioStatus.currentTime / audioStatus.duration}
+          duration={audioStatus.duration}
+        />
 
         <View className="flex-row items-center justify-between mt-4 w-full">
           <Ionicons name="play-skip-back" size={24} color="white" />
