@@ -1,12 +1,33 @@
-import { View } from "react-native";
+import { useState } from "react";
+import { GestureResponderEvent, Pressable, View } from "react-native";
 
-export default function PlaybackBar({ value }: { value: number }) {
+type PlaybackBarProps = {
+  value: number;
+  onSeek: (seconds: number) => void;
+  duration: number;
+};
+
+export default function PlaybackBar({
+  value,
+  onSeek,
+  duration,
+}: PlaybackBarProps) {
+  const [width, setWidth] = useState(0);
+  const handleSeek = (e: GestureResponderEvent) => {
+    const { nativeEvent } = e;
+    // console.log("Location:", nativeEvent.locationX);
+    const percentage = nativeEvent.locationX / width;
+    const seekToSeconds = percentage * duration;
+    onSeek(seekToSeconds);
+  };
   return (
-    <View
+    <Pressable
+      onPress={handleSeek}
+      onLayout={(event) => setWidth(event.nativeEvent.layout.width)}
       style={{
         width: "100%",
         height: 10,
-        backgroundColor: "#ccc",
+        backgroundColor: "#dddd",
         borderRadius: 999,
         justifyContent: "center",
         position: "relative",
@@ -24,7 +45,7 @@ export default function PlaybackBar({ value }: { value: number }) {
       <View
         style={{
           position: "absolute",
-          top: 0,
+          top: -1,
           left: `${value * 100}%`,
           width: 12,
           height: 12,
@@ -33,6 +54,6 @@ export default function PlaybackBar({ value }: { value: number }) {
           transform: [{ translateX: -6 }],
         }}
       />
-    </View>
+    </Pressable>
   );
 }
