@@ -17,13 +17,17 @@ export default function PlaybackBar({
     const { nativeEvent } = e;
     // console.log("Location:", nativeEvent.locationX);
     const percentage = nativeEvent.locationX / width;
-    const seekToSeconds = percentage * duration;
+    const seekToSeconds = Math.min(
+      Math.max(percentage * duration, 0),
+      duration
+    );
     onSeek(seekToSeconds);
   };
   return (
     <Pressable
       onPress={handleSeek}
       onLayout={(event) => setWidth(event.nativeEvent.layout.width)}
+      hitSlop={20}
       style={{
         width: "100%",
         height: 10,
