@@ -1,3 +1,4 @@
+import { PlayerProvider } from "@/providers/PlayerProvider";
 import { ClerkProvider } from "@clerk/clerk-expo";
 import { tokenCache } from "@clerk/clerk-expo/token-cache";
 import { DarkTheme, ThemeProvider } from "@react-navigation/native";
@@ -16,13 +17,15 @@ export default function RootLayout() {
   return (
     <ClerkProvider tokenCache={tokenCache}>
       <ThemeProvider value={theme}>
-        <Stack
-          screenOptions={{
-            headerShown: false,
-          }}
-        >
-          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        </Stack>
+        <PlayerProvider>
+          <Stack
+            screenOptions={{
+              headerShown: false,
+            }}
+          >
+            <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+          </Stack>
+        </PlayerProvider>
       </ThemeProvider>
     </ClerkProvider>
   );
