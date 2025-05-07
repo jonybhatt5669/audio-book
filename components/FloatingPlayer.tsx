@@ -7,6 +7,8 @@ import { Image, Pressable, Text, View } from "react-native";
 export default function FloatingPlayer() {
   const { player, book } = usePlayer();
   const audioStatus = useAudioPlayerStatus(player);
+
+  if (!book) return null;
   return (
     <LinearGradient
       colors={["#44A08D", "#0f3443"]}

@@ -1,19 +1,19 @@
-import dummyBooks from "@/utils/dummyBooks";
 import { IBook } from "@/utils/interfaces/IBook";
 import { AudioPlayer, useAudioPlayer } from "expo-audio";
 import { createContext, PropsWithChildren, useContext, useState } from "react";
 
 type PlayerContextType = {
   player: AudioPlayer;
-  book: IBook;
+  book: IBook | null;
   setBook: (book: IBook) => void;
 };
 
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
 
 export function PlayerProvider({ children }: PropsWithChildren) {
-  const [book, setBook] = useState(dummyBooks[0]);
-  const player = useAudioPlayer({ uri: book.audio_url });
+  const [book, setBook] = useState<IBook | null>(null);
+
+  const player = useAudioPlayer({ uri: book?.audio_url });
 
   return (
     <PlayerContext.Provider value={{ player, book, setBook }}>
