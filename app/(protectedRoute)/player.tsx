@@ -1,12 +1,13 @@
 import PlaybackBar from "@/components/PlaybackBar";
+import { usePlayer } from "@/providers/PlayerProvider";
 import dummyBooks from "@/utils/dummyBooks";
 import { Ionicons } from "@expo/vector-icons";
-import { useAudioPlayer, useAudioPlayerStatus } from "expo-audio";
+import { useAudioPlayerStatus } from "expo-audio";
 import { Image, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 export default function Player() {
   const book = dummyBooks[0];
-  const player = useAudioPlayer({ uri: book.audio_url });
+  const { player } = usePlayer();
   const audioStatus = useAudioPlayerStatus(player);
   const time = audioStatus.currentTime / audioStatus.duration;
   const formatDuration = () => {
