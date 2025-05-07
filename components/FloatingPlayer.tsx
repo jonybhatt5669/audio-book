@@ -1,13 +1,11 @@
 import { usePlayer } from "@/providers/PlayerProvider";
-import dummyBooks from "@/utils/dummyBooks";
 import { AntDesign } from "@expo/vector-icons";
 import { useAudioPlayerStatus } from "expo-audio";
 import { LinearGradient } from "expo-linear-gradient";
 import { Link } from "expo-router";
 import { Image, Pressable, Text, View } from "react-native";
 export default function FloatingPlayer() {
-  const item = dummyBooks[0];
-  const { player } = usePlayer();
+  const { player, book } = usePlayer();
   const audioStatus = useAudioPlayerStatus(player);
   return (
     <LinearGradient
@@ -19,14 +17,14 @@ export default function FloatingPlayer() {
       <Link href="/player" asChild>
         <Pressable className="flex-row items-center gap-2 w-full">
           <Image
-            source={{ uri: item.thumbnail_url }}
+            source={{ uri: book.thumbnail_url }}
             className="aspect-square w-16"
           />
           <View className="gap-1 flex-1">
             <Text className="font-bold text-gray-100  text-2xl">
-              {item.title}
+              {book.title}
             </Text>
-            <Text className="font-normal text-gray-400">{item.author}</Text>
+            <Text className="font-normal text-gray-400">{book.author}</Text>
           </View>
           <View className="flex-row items-center gap-4">
             <AntDesign

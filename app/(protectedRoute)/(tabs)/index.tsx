@@ -1,9 +1,12 @@
+import { usePlayer } from "@/providers/PlayerProvider";
 import { AntDesign } from "@expo/vector-icons";
-import { Link } from "expo-router";
+import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { FlatList, Image, Text, View } from "react-native";
+import { FlatList, Image, Pressable, Text, View } from "react-native";
 import books from "../../../utils/dummyBooks";
 export default function Home() {
+  const { setBook } = usePlayer();
+  const router = useRouter();
   return (
     <View className=" flex-1 justify-center p-4 pt-10">
       <FlatList
@@ -11,7 +14,13 @@ export default function Home() {
         contentContainerClassName="gap-6"
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View className="flex-row items-center gap-2">
+          <Pressable
+            onPress={() => {
+              setBook(item);
+              router.push("/player");
+            }}
+            className="flex-row items-center gap-2"
+          >
             <Image
               source={{ uri: item.thumbnail_url }}
               className="aspect-square w-16"
@@ -23,13 +32,14 @@ export default function Home() {
               <Text className="font-normal text-gray-400">{item.author}</Text>
             </View>
             <View className="flex-row items-center gap-4">
-              <Link href="/player" asChild>
+              {/* <Link href="/player" asChild>
                 <AntDesign name="playcircleo" size={22} color="gainsboro" />
-              </Link>
+              </Link> */}
+              <AntDesign name="playcircleo" size={22} color="gainsboro" />
               <AntDesign name="download" size={22} color="gainsboro" />
               <AntDesign name="pluscircle" size={22} color="gainsboro" />
             </View>
-          </View>
+          </Pressable>
         )}
       />
       <StatusBar style="light" />
