@@ -1,65 +1,73 @@
 export default [
   {
     id: "1",
-    title: "The Great Gatsby",
-    author: "F. Scott Fitzgerald",
+    title: "1,000 A Plate",
+    author: " Jack McKenty",
     audio_url:
-      "https://ia802206.us.archive.org/9/items/thenewyear_2501.poem_librivox/newyear_cawein_ar_128kb.mp3",
+      "https://ia601307.us.archive.org/8/items/short_science_fiction_collection_054_1602_librivox/ssf054_1000aplate_mckenty_mja_128kb.mp3",
     thumbnail_url:
-      "https://m.media-amazon.com/images/I/71FTb9X6wsL._AC_UF1000,1000_QL80_.jpg",
+      "https://m.media-amazon.com/images/I/71E8Hd4Ks4L._SY466_.jpg",
+    genre: ["Fantastic Fiction", "Science Fiction", "Short Stories"],
   },
   {
     id: "2",
-    title: "Pride and Prejudice",
-    author: "Jane Austen",
+    title: "The Adventures of Ulysses Cpt-1",
+    author: "Charles Lamb",
     audio_url:
-      "https://dn720309.ca.archive.org/0/items/fcc08_2102_librivox/fcc08_01_various_64kb.mp3",
+      "https://ia804504.us.archive.org/3/items/ulysses_lamb_rd_librivox/ulysses_01_lamb.mp3",
     thumbnail_url:
-      "https://m.media-amazon.com/images/I/71Q1tPupKjL._AC_UF1000,1000_QL80_.jpg",
+      "https://m.media-amazon.com/images/I/71JPaQ9vG3L._SY466_.jpg",
+    genre: ["Action", "Fiction", "Adventure"],
   },
   {
     id: "3",
-    title: "The Adventures of Sherlock Holmes",
-    author: "Arthur Conan Doyle",
+    title: "Alice's Adventures in Wonderland",
+    author: "Lewis Carroll",
     audio_url:
-      "https://ia801501.us.archive.org/19/items/lostwarship_2504_librivox/lostwarship_01_williams_128kb.mp3",
+      "https://ia804601.us.archive.org/11/items/alices_adventures/aliceinwonderland_01_carroll.mp3",
     thumbnail_url:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Adventures_of_sherlock_holmes.jpg/330px-Adventures_of_sherlock_holmes.jpg",
+      "https://m.media-amazon.com/images/I/91xhGWejJCL._SY425_.jpg",
+    genre: ["Fiction"],
   },
   {
     id: "4",
-    title: "Frankenstein",
-    author: "Mary Shelley",
+    title: "Left To Die",
+    author: "Blake Pierce",
     audio_url:
-      "https://ia601501.us.archive.org/19/items/lostwarship_2504_librivox/lostwarship_02_williams_128kb.mp3",
+      "https://media.audiobooksnow.com/index.php?page=download_web&amp;action=playsample&amp;data=OTc4MTA5NDMwMjg5ODIwMjUwNTA3",
     thumbnail_url:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Christie%27s_auction_scan_of_Frankenstein_1818.jpg/330px-Christie%27s_auction_scan_of_Frankenstein_1818.jpg",
+      "https://static.audiobooksnow.com/jackets/large/8/9/8/9781094302898.jpg",
+    genre: ["Fiction", "Mystery"],
   },
   {
     id: "5",
-    title: "Dracula",
+    title: "Already Gone",
     author: "Bram Stoker",
     audio_url:
-      "https://ia801501.us.archive.org/19/items/lostwarship_2504_librivox/lostwarship_03_williams_128kb.mp3",
+      "https://media.audiobooksnow.com/index.php?page=download_web&action=playsample&data=OTc4MTA5NDMxNjUzNjIwMjUwNTA3",
     thumbnail_url:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Dracula_1st_ed_cover_reproduction.jpg/330px-Dracula_1st_ed_cover_reproduction.jpg",
+      "	https://static.audiobooksnow.com/jackets/large/5/3/6/9781094316536.jpg",
+    genre: ["Fiction", "Suspense"],
   },
   {
     id: "6",
-    title: "The Picture of Dorian Gray",
-    author: "Oscar Wilde",
+    title: "The Tumor",
+    author: "John Grisham",
     audio_url:
-      "https://ia801501.us.archive.org/19/items/lostwarship_2504_librivox/lostwarship_04_williams_128kb.mp3",
+      "https://media.audiobooksnow.com/index.php?page=download_web&action=playsample&data=OTc4MTk4NzEwMzg5MjIwMjUwNTA3",
     thumbnail_url:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Lippincott_doriangray.jpg/330px-Lippincott_doriangray.jpg",
+      "https://static.audiobooksnow.com/jackets/large/8/9/2/9781987103892.jpg",
+    genre: ["Nonfiction"],
   },
   {
     id: "7",
-    title: "Good to Great",
-    author: "Jim Collins",
+    title: "Any Means Necessary",
+    author: "Jack Mars",
     audio_url:
-      "https://ia801501.us.archive.org/19/items/lostwarship_2504_librivox/lostwarship_05_williams_128kb.mp3",
-    thumbnail_url: "https://m.media-amazon.com/images/I/51IPJiX34fL.jpg",
+      "https://media.audiobooksnow.com/index.php?page=download_web&action=playsample&data=OTc4MTA5NDMxNDMwMzIwMjUwNTA3",
+    thumbnail_url:
+      "https://static.audiobooksnow.com/jackets/large/3/0/3/9781094314303.jpg",
+    genre: ["Fiction", "Suspense"],
   },
   {
     id: "8",
@@ -68,6 +76,7 @@ export default [
     audio_url:
       "https://ia801501.us.archive.org/19/items/lostwarship_2504_librivox/lostwarship_06_williams_128kb.mp3",
     thumbnail_url: "https://m.media-amazon.com/images/I/51IPJiX34fL.jpg",
+    genre: ["Horror"],
   },
   {
     id: "9",
@@ -76,5 +85,6 @@ export default [
     audio_url:
       "https://ia801501.us.archive.org/19/items/lostwarship_2504_librivox/lostwarship_07_williams_128kb.mp3",
     thumbnail_url: "https://m.media-amazon.com/images/I/51IPJiX34fL.jpg",
+    genre: ["Fiction", "Suspense"],
   },
 ];
