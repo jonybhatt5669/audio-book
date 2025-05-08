@@ -5,7 +5,7 @@ import { StatusBar } from "expo-status-bar";
 import { useMemo, useState } from "react";
 import { FlatList, Image, Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import books from "../../../utils/dummyBooks";
+import books from "../../utils/dummyBooks";
 export default function Home() {
   const { setBook } = usePlayer();
   const router = useRouter();
@@ -81,10 +81,8 @@ export default function Home() {
                 <Text className="font-normal text-gray-400">{item.author}</Text>
               </View>
               <View className="flex-row items-center gap-4">
-                {/* <Link href="/player" asChild>
                 <AntDesign name="playcircleo" size={22} color="gainsboro" />
-              </Link> */}
-                <AntDesign name="playcircleo" size={22} color="gainsboro" />
+                <AntDesign name="download" size={22} color="gainsboro" />
               </View>
             </Pressable>
           )}

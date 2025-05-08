@@ -18,16 +18,16 @@ export default function Player() {
     <SafeAreaView className="flex-1 items-center py-8 px-6">
       <View className="gap-4">
         <Image
-          source={{ uri: book.thumbnail_url }}
+          source={{ uri: book?.thumbnail_url }}
           className="w-[95%] aspect-square rounded-3xl object-contain self-center"
         />
 
         <View className="gap-2">
           <Text className="text-gray-100 text-3xl font-semibold text-center">
-            {book.title}
+            {book?.title}
           </Text>
           <Text className="text-gray-400 text-lg font-semibold text-center">
-            {book.author}
+            {book?.author}
           </Text>
         </View>
       </View>

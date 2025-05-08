@@ -27,10 +27,10 @@ export default function MainLayout() {
       <Tabs.Screen
         name="library"
         options={{
-          title: "Library",
+          title: "Downloaded",
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="library-outline" size={size} color={color} />
+            <Ionicons name="download-outline" size={size} color={color} />
           ),
           tabBarActiveTintColor: "#F4F8D3",
         }}
