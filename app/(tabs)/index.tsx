@@ -4,7 +4,6 @@ import { IDownloadedFile } from "@/utils/interfaces/IDownloadedFile";
 import { AntDesign } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as FileSystem from "expo-file-system";
-import * as Permissions from "expo-permissions";
 import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useMemo, useState } from "react";
@@ -51,16 +50,6 @@ export default function Home() {
 
   // Request storage permission and download the audio file
   const downloadFile = async (file: IBook) => {
-    const { status } = await Permissions.askAsync(
-      Permissions.MEDIA_LIBRARY_WRITE_ONLY
-    );
-    if (status !== "granted") {
-      Alert.alert(
-        "Permission Denied",
-        "Storage permission is required to download files."
-      );
-      return;
-    }
     const fileUri = `${FileSystem.documentDirectory}${
       file.id
     }_${file.title.replace(/[^a-zA-Z0-9]/g, "_")}.mp3`;
@@ -70,6 +59,7 @@ export default function Home() {
       const newFile: IDownloadedFile = {
         id: file.id,
         title: file.title,
+        author: file.author,
         fileUri,
       };
       const updateFiles = [...downloadedFile, newFile];
