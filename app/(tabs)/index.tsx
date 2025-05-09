@@ -75,7 +75,7 @@ export default function Home() {
                 className="aspect-square w-16"
               />
               <View className="gap-1 flex-1">
-                <Text className="font-bold text-gray-100  text-2xl">
+                <Text className="font-bold text-gray-100  text-2xl line-clamp-1">
                   {item.title}
                 </Text>
                 <Text className="font-normal text-gray-400">{item.author}</Text>
