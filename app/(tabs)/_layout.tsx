@@ -25,23 +25,12 @@ export default function MainLayout() {
         }}
       />
       <Tabs.Screen
-        name="library"
+        name="download"
         options={{
           title: "Downloaded",
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="download-outline" size={size} color={color} />
-          ),
-          tabBarActiveTintColor: "#F4F8D3",
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: "Profile",
-          headerShown: false,
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person-circle-outline" size={size} color={color} />
           ),
           tabBarActiveTintColor: "#F4F8D3",
         }}
