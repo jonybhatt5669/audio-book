@@ -5,4 +5,5 @@ export interface IBook {
   audio_url: string;
   thumbnail_url: string;
   genre: string[];
+  download: string;
 }
