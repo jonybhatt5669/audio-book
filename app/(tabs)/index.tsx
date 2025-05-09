@@ -7,7 +7,15 @@ import * as FileSystem from "expo-file-system";
 import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useMemo, useState } from "react";
-import { Alert, FlatList, Image, Pressable, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  Alert,
+  FlatList,
+  Image,
+  Pressable,
+  Text,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import books from "../../utils/dummyBooks";
 export default function Home() {
@@ -17,6 +25,7 @@ export default function Home() {
   const [downloadedFile, setDownloadedFile] = useState<IDownloadedFile[] | []>(
     []
   );
+  const [downloadLoading, setDownloadLoading] = useState<string | null>(null);
 
   // Extract unique genres
   const genres = useMemo(() => {
@@ -50,10 +59,15 @@ export default function Home() {
 
   // Request storage permission and download the audio file
   const downloadFile = async (file: IBook) => {
+    if (downloadLoading) {
+      Alert.alert("Download in progress");
+      return;
+    }
     const fileUri = `${FileSystem.documentDirectory}${
       file.id
     }_${file.title.replace(/[^a-zA-Z0-9]/g, "_")}.mp3`;
 
+    setDownloadLoading(file.id);
     try {
       await FileSystem.downloadAsync(file.download, fileUri);
       const newFile: IDownloadedFile = {
@@ -72,6 +86,8 @@ export default function Home() {
     } catch (error) {
       console.error("Download error:", error);
       Alert.alert("Error", "Failed to download the file.");
+    } finally {
+      setDownloadLoading(null);
     }
   };
   return (
@@ -120,6 +136,7 @@ export default function Home() {
             const isDownloaded = downloadedFile.some(
               (file) => file.id === item.id
             );
+            const isDownloading = downloadLoading === item.id;
             return (
               <Pressable
                 onPress={() => {
@@ -142,7 +159,8 @@ export default function Home() {
                 </View>
                 <View className="flex-row items-center gap-4">
                   <AntDesign name="playcircleo" size={22} color="gainsboro" />
-                  {!isDownloaded && (
+                  {isDownloading && <ActivityIndicator color="#ffff" />}
+                  {!isDownloaded && !downloadLoading && (
                     <AntDesign
                       name="download"
                       size={22}
